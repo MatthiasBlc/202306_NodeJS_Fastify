@@ -3,14 +3,17 @@
   "version": "1.0.0",
   "description": "## Table of contents",
   "main": "index.js",
+  "type": "module",
   "scripts": {
-    "dev":"node --watch src/server.js",
+    "dev": "node --watch src/server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@fastify/view": "^7.4.1",
+    "ejs": "^3.1.9",
     "fastify": "^4.17.0"
   }
 }
