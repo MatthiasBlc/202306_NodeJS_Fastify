@@ -4,6 +4,7 @@ import ejs from "ejs";
 import { fastifyStatic } from "@fastify/static";
 import { fileURLToPath } from "node:url";
 import { dirname, join } from "node:path";
+import { listPosts, showPost } from "./actions/posts.js";
 
 const app = fastify();
 const rootDir = dirname(dirname(fileURLToPath(import.meta.url)));
@@ -18,22 +19,8 @@ app.register(fastifyStatic, {
   root: join(rootDir, "public"),
 });
 
-app.get("/", (req, res) => {
-  const posts = [
-    {
-      title: "new title",
-      content: "new content",
-    },
-    {
-      title: "new title 2",
-      content: "new content 2",
-    },
-  ];
-
-  res.view("templates/index.ejs", {
-    posts,
-  });
-});
+app.get("/", listPosts);
+app.get("/article/:id", showPost);
 
 const start = async () => {
   try {
