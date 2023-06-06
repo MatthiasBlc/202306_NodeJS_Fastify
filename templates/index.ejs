@@ -1,4 +1,4 @@
-<%- include('./shared/header.ejs') %>
+<%- include('./shared/header.ejs', {title: 'Welcome Here' } ) %>
 
   <h1>
     <% if (locals.title){ %>
@@ -6,15 +6,16 @@
         <% } %>
   </h1>
 
+  <div class="container">
+    <h1>Welcome here</h1>
+  </div>
+
   <ul>
-
-
     <% for(const post of posts) { %>
       <li>
         <%= post.title %>
       </li>
       <% } %>
-
   </ul>
 
   <%- include('./shared/footer.ejs') %>
